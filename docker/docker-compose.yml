@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  rust:
+    build:
+      context: ./rust
+    environment:
+      - TZ=JST-9
+    tty: true
+    volumes:
+      - type: bind
+        source: ../
+        target: /home/workspace
+    ports:
+      - 8999:80
+
+networks:
+  rustnet:
+    external: true
