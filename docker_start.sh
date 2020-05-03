@@ -1,0 +1,1 @@
+docker run --rm -e USER=$USER -it --name rust_1.43.0 -w /app -v $(pwd):/app rust:1.43.0 /bin/bash

@@ -5,5 +5,3 @@ docker network create rustnet
 
 docker-compose build
 docker-compose up -d
-
-docker-compose exec rust /bin/sh

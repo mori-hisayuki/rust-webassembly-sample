@@ -1,5 +1,13 @@
-FROM rust:alpine3.11
+FROM rust:1.43.0
 WORKDIR /home/workspace
 
-RUN  apk upgrade
-CMD ["/bin/sh"]
+COPY ./rust/Cargo.toml /home/workspace
+
+RUN ls -la && pwd
+RUN cargo install \
+    cargo-edit \
+    catflap \
+    cargo-watch
+
+EXPOSE 8080
+CMD ["catflap", "--", "cargo", "watch", "-x", "run"]
